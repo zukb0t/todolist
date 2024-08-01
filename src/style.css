@@ -1,30 +1,23 @@
 body{
     margin:0;
+    padding:0;
 }
-
 .container{
-    height:100vh;
     display:flex;
-}
-
-h1{
-    padding:1.5rem;
-}
-
-.sidebar{
-    min-width:300px;
-    background-color:whitesmoke;
-    display:flex;
-    flex-direction:column;
 }
 
 ul{
-    margin:0;
-    padding:1.5rem;
     list-style:none;
     display:flex;
     flex-direction:column;
     gap:16px;
+}
+
+.sidebar{
+    padding:1.5rem;
+    background-color:whitesmoke;
+    width:200px;
+    height:800px;
 }
 
 .content{
@@ -33,18 +26,16 @@ ul{
     gap:16px;
 }
 
-.card{
-    border-radius:12px;
-    border:solid;
-    width:200px;
-    height:250px;
+.buttons{
+    display:flex;
+    gap:16px;
+    justify-content:space-evenly;
+    align-items:center;
 }
 
-.button-container{
-    height:40px;
-    margin-top:16px;
-    gap:16px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.card{
+    height:200px;
+    width:200px;
+    border:solid 1px;
+    border-radius:12px;
 }

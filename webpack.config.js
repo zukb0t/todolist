@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const pages = ['index'];
+const pages = ['index','projectlist','project','projectproperties','task','taskproperties'];
 
 function makeFiles(config, page){
     config[page] = `./src/${page}.js`;
