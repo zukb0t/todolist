@@ -4,19 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
     <title>ToDo App</title>
-<script defer src="index.bundle.js"></script><script defer src="projectlist.bundle.js"></script><script defer src="project.bundle.js"></script><script defer src="projectproperties.bundle.js"></script><script defer src="task.bundle.js"></script></head>
+<script defer src="index.bundle.js"></script><script defer src="interface.bundle.js"></script><script defer src="eventhandlers.bundle.js"></script><script defer src="projectlist.bundle.js"></script><script defer src="project.bundle.js"></script><script defer src="projectproperties.bundle.js"></script><script defer src="task.bundle.js"></script><script defer src="taskproperties.bundle.js"></script><script defer src="index.bundle.js"></script><script defer src="interface.bundle.js"></script><script defer src="eventhandlers.bundle.js"></script><script defer src="projectlist.bundle.js"></script><script defer src="project.bundle.js"></script><script defer src="projectproperties.bundle.js"></script><script defer src="task.bundle.js"></script><script defer src="taskproperties.bundle.js"></script></head>
 <body>
     <div class = "container">
         <div class = "sidebar">
             <h1>ToDo List</h1>
             <ul>
                 <li><button class = "Today">Today</button></li>
-                <li><button class = "This week">This Week</button></li>
+                <li><button class = "Weekly">This Week</button></li>
                 <li><button class = "Add">Add Project</button></li>
             </ul>
         </div>
-        <div class = "content"></div>
+        <div class = "listprojects"></div>
+
+        <dialog id = "add-project">
+            <form>
+                <label for = "project">Project name:</label>
+                <input type = "text" id = "project" name="project">
+                <button class = "accept" type ="submit">Add Project</button>
+                <button class = "cancel" formmethod ="dialog" type ="submit">Cancel</button>
+            </form>
+        </dialog>
+
+        <dialog id = "delete-project">
+            <form method = "dialog">Really delete?
+                <button class = "yes">Yes</button>
+                <button class = "no">No</button>
+            </form>
+        </dialog>
+
+        <dialog id = "add-task">
+            <form id = "test">
+                <ul class = "editadd">
+                    <li>
+                        <label for = "addtask">Task:</label>
+                        <input type = "text" id = "addtask">
+                    </li>
+                    <li>
+                        <label for = "adddescription">Description:</label>
+                        <textarea id = "adddescription" id="adddescription"></textarea>
+                    </li>
+                    <li>
+                        <label for = "addduedate">Due date:</label>
+                        <input type = "date" id ="addduedate">
+                    </li>
+                    <li>
+                        <label for = 'addpriority'>Priority:</label>
+                            <select id = 'addpriority'>
+                                <option value = 'low'>Low</option>
+                                <option value = 'medium'>Medium</option>
+                                <option value = 'high'>High</option>
+                            </select>
+                    </li>
+                </ul>
+                <button id = "addtoproject">Update</button>
+                <button id = "canceltask" formmethod ="dialog" type ="submit">Cancel</button>
+            </form>
+        </dialog>
+
+        <dialog id = "edit-task">
+            <form id = "test">
+                <ul class = "editadd">
+                    <li>
+                        <label for = "task">Task:</label>
+                        <input type = "text" id = "task">
+                    </li>
+                    <li>
+                        <label for = "description">Description:</label>
+                        <textarea id = "description" id="description"></textarea>
+                    </li>
+                    <li>
+                        <label for = "duedate">Due date:</label>
+                        <input type = "date" id ="duedate">
+                    </li>
+                    <li>
+                        <label for = "priority">Priority:</label>
+                            <select id = 'priority'>
+                                <option>Low</option>
+                                <option>Medium</option>
+                                <option>High</option>
+                            </select>
+                    </li>
+                </ul>
+                <button id = "update">Update</button>
+                <button id = "cancel" formmethod ="dialog" type ="submit">Cancel</button>
+            </form>
+        </dialog>
+        <div class = "content">
+        </div>
     </div>
-    
 </body>
 </html>

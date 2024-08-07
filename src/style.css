@@ -7,20 +7,38 @@ body{
 }
 
 ul{
+    padding:0;
     list-style:none;
     display:flex;
     flex-direction:column;
+    gap:8px;
+}
+
+.project{
+    display:flex;
+    justify-content:space-between;
     gap:16px;
+}
+
+.projectli{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.projectli>button{
+    width:80px;
 }
 
 .sidebar{
     padding:1.5rem;
     background-color:whitesmoke;
-    width:200px;
+    width:300px;
     height:800px;
 }
 
 .content{
+    margin-top:1.5rem;
     padding:1.5rem;
     display:flex;
     gap:16px;
@@ -34,8 +52,41 @@ ul{
 }
 
 .card{
+    padding:1.5rem;
     height:200px;
     width:200px;
     border:solid 1px;
     border-radius:12px;
+}
+
+.deleteContainer{
+    padding:1.5rem;
+    background-color:Red;
+    align-items:center;
+}
+
+form{
+    display:inline-block;
+    padding: 1em;
+}
+
+form li + li{
+    margin-top:1em;
+}
+
+label{
+    display:inline-block;
+    width:90px;
+    text-align:right;
+}
+
+input,textarea{
+    width:200px;
+    box-sizing:border-box;
+    border:1px solid #999;
+}
+
+textarea{
+    vertical-align:top;
+    height:5em;
 }
