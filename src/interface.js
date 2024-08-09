@@ -7,9 +7,7 @@ function displayDefault(){
     content.innerHTML = '';
     content.textContent = "Welcome";
 
-
 }
-
 
 function displayProjects(){
     const sidebar = document.querySelector('.sidebar');
