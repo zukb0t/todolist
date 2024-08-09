@@ -1,11 +1,13 @@
 import projectList from './projectlist.js';
 import {removeTask,editTask, addTaskForm} from './taskproperties.js';
 import {removeProject} from './projectproperties.js';
+import { getProjectsFromLocalStorage } from './localstorage.js';
 
 function displayDefault(){
     const content = document.querySelector('.content');
     content.innerHTML = '';
     content.textContent = "Welcome";
+    displayProjects();
 
 }
 
@@ -15,8 +17,8 @@ function displayProjects(){
     listContainer.innerHTML = '';
     const projects = document.createElement('ul');
     projects.classList.add('project');
-    
-    projectList.forEach((currentProject,index) => {
+    const projectStorage = getProjectsFromLocalStorage();
+    projectStorage.forEach((currentProject,index) => {
         const deleteBtn = document.createElement('button');
         const insertTask = document.createElement('button');
         const project = document.createElement('li');
