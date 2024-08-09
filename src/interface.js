@@ -52,7 +52,7 @@ function displayProjects(){
 
     projects.addEventListener("click",function(event){
         const projectIndex = event.target.dataset.projectIndex;
-        displayTasks(projectList[projectIndex].tasks);
+        displayTasks(projectStorage[projectIndex].tasks);
     });
 };
 
