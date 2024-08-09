@@ -1,6 +1,7 @@
 import projectList from './projectlist.js';
 import Task from './task.js';
 import {displayTasks} from './interface.js';
+import addProjectToLocalStorage from './localstorage.js';
 import {lightFormat} from 'date-fns';
 
 let edit = null;
@@ -31,6 +32,7 @@ function addTaskForm(index){
         const priority = addPriority.value;
         modal.close();
         addTask(index, title, description, dueDate, priority);
+        addProjectToLocalStorage();
         displayTasks(projectList[index].tasks);
     }
 
@@ -69,6 +71,7 @@ function editTask(task,taskList){
         task.dueDate = updateDueDate.value;
         task.priority = updatePriority.value;
         modal.close();
+        addProjectToLocalStorage();
         displayTasks(taskList);
     }
 
