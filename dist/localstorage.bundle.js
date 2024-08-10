@@ -20,16 +20,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/project.js":
-/*!************************!*\
-  !*** ./src/project.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\nfunction Project(title){\n    const project = title;\n    const tasks = [];\n\n    return {project, tasks};\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Project);\n\n//# sourceURL=webpack://todolist/./src/project.js?");
-
-/***/ }),
-
 /***/ "./src/projectlist.js":
 /*!****************************!*\
   !*** ./src/projectlist.js ***!
@@ -37,16 +27,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nlet projectList = JSON.parse(localStorage.getItem('projects')) || [];\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (projectList);\n\n//# sourceURL=webpack://todolist/./src/projectlist.js?");
-
-/***/ }),
-
-/***/ "./src/projectproperties.js":
-/*!**********************************!*\
-  !*** ./src/projectproperties.js ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   removeProject: () => (/* binding */ removeProject)\n/* harmony export */ });\n/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project.js */ \"./src/project.js\");\n/* harmony import */ var _projectlist_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projectlist.js */ \"./src/projectlist.js\");\n/* harmony import */ var _localstorage_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./localstorage.js */ \"./src/localstorage.js\");\n\n\n\n\n\nfunction addProject(title){\n    _projectlist_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].push((0,_project_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(title));\n    (0,_localstorage_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n\n}\n\nfunction removeProject(index){\n    _projectlist_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].splice(index,1);\n    (0,_localstorage_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addProject);\n\n\n\n//# sourceURL=webpack://todolist/./src/projectproperties.js?");
 
 /***/ })
 
@@ -110,7 +90,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/projectproperties.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/localstorage.js");
 /******/ 	
 /******/ })()
 ;

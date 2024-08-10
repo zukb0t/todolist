@@ -1,7 +1,7 @@
 import projectList from './projectlist.js';
 import {removeTask,editTask, addTaskForm} from './taskproperties.js';
 import {removeProject} from './projectproperties.js';
-import { getProjectsFromLocalStorage } from './localstorage.js';
+import addProjectToLocalStorage, {getProjectsFromLocalStorage}  from './localstorage.js';
 
 function displayDefault(){
     const content = document.querySelector('.content');
@@ -52,13 +52,14 @@ function displayProjects(){
 
     projects.addEventListener("click",function(event){
         const projectIndex = event.target.dataset.projectIndex;
-        displayTasks(projectStorage[projectIndex].tasks);
+        displayTasks(projectIndex);
     });
 };
 
-function displayTasks(taskList){
+function displayTasks(projectIndex){
     const content = document.querySelector('.content');
     content.innerHTML = '';
+    const taskList = projectList[projectIndex].tasks;
     taskList.forEach((currentTask,index) =>{
         const card = document.createElement('div');
         card.classList.add('card');
@@ -98,13 +99,15 @@ function displayTasks(taskList){
 
         remove.addEventListener("click", function(){
             const taskIndex = card.dataset.taskIndex;
-            removeTask(taskList,taskIndex);
-            displayTasks(taskList);  
+            console.log(taskIndex);
+            removeTask(projectIndex,taskIndex);
+            displayTasks(projectIndex);  
         });
 
         edit.addEventListener("click", () => {
-            const task = taskList[card.dataset.taskIndex];
-            editTask(task,taskList);
+            const taskIndex = card.dataset.taskIndex;
+            editTask(projectIndex, taskIndex);
+            displayTasks(projectIndex);
             
         });
     });

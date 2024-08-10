@@ -1,8 +1,8 @@
 import projectList from './projectlist.js';
 import Task from './task.js';
 import {displayTasks} from './interface.js';
-import addProjectToLocalStorage from './localstorage.js';
 import {lightFormat} from 'date-fns';
+import addProjectToLocalStorage from './localstorage.js';
 
 let edit = null;
 let addATask = null;
@@ -33,7 +33,7 @@ function addTaskForm(index){
         modal.close();
         addTask(index, title, description, dueDate, priority);
         addProjectToLocalStorage();
-        displayTasks(projectList[index].tasks);
+        displayTasks(index);
     }
 
     submitEdit.addEventListener("click" , addATask);
@@ -44,11 +44,12 @@ function addTask(index,title,description,dueDate,priority){
     projectList[index].tasks.push(Task(title,description,dueDate,priority));
 }
 
-function removeTask(tasks,taskIndex){
-    tasks.splice(taskIndex, 1);
+function removeTask(projectIndex,taskIndex){
+    projectList[projectIndex].tasks.splice(taskIndex, 1);
+    addProjectToLocalStorage();
 }
 
-function editTask(task,taskList){
+function editTask(projectIndex, taskIndex){
     const modal = document.querySelector('#edit-task');
     const update = document.querySelector('#update');
     const updateTask = document.querySelector('#task');
@@ -66,13 +67,13 @@ function editTask(task,taskList){
 
     edit = (event) => {
         event.preventDefault();
-        task.title = updateTask.value;
-        task.description = updateDescription.value;
-        task.dueDate = updateDueDate.value;
-        task.priority = updatePriority.value;
+        projectList[projectIndex].tasks[taskIndex].title = updateTask.value;
+        projectList[projectIndex].tasks[taskIndex].description = updateDescription.value;
+        projectList[projectIndex].tasks[taskIndex].dueDate = updateDueDate.value;
+        projectList[projectIndex].tasks[taskIndex].priority = updatePriority.value;
         modal.close();
         addProjectToLocalStorage();
-        displayTasks(taskList);
+        displayTasks(projectIndex);
     }
 
     update.addEventListener("click" , edit);
